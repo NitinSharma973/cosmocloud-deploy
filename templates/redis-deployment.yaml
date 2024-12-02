@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: default # Update if using a custom namespace
+  labels:
+    app: redis
+spec:
+  replicas: { { .Values.replicaCount } }
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - name: redis
+          image: { { .Values.redis.image } }
+          ports:
+            - containerPort: { { .Values.redis.service.port } }
+          resources: { { - toYaml .Values.redis.resources | nindent 10 } }

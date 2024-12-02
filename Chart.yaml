@@ -1,0 +1,4 @@
+apiVersion: v2
+name: cosmocloud-deploy
+description: A Helm chart for deploying Backend, Frontend, and Redis
+version: 0.1.0
