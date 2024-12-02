@@ -4,7 +4,9 @@ metadata:
   name: "{{ include "cosmocloud-deploy.fullname" . }}-test-connection"
   labels:
     {{- include "cosmocloud-deploy.labels" . | nindent 4 }}
+    helm.sh/chart: {{ include "cosmocloud-deploy.chart" . }}
   annotations:
+
     "helm.sh/hook": test
 spec:
   containers:

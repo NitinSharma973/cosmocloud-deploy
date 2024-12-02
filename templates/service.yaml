@@ -4,6 +4,7 @@ metadata:
   name: {{ include "cosmocloud-deploy.fullname" . }}
   labels:
     {{- include "cosmocloud-deploy.labels" . | nindent 4 }}
+    helm.sh/chart: {{ include "cosmocloud-deploy.chart" . }}
 spec:
   type: {{ .Values.service.type }}
   ports:
